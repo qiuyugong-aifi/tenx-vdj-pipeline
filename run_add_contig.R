@@ -48,9 +48,9 @@ if(!dir.exists(args$out_dir)) {
 
 rmd_loc <- file.path(args$out_dir,
                      paste0(args$in_batch,
-                            "_add_tenx_rna_metadata.Rmd"))
+                            "_add_contig_to_metadata.Rmd"))
 
-file.copy(system.file("rmarkdown/add_tenx_rna_metadata.Rmd", package = "H5weaver"),
+file.copy(system.file("rmarkdown/add_contig_to_metadata.Rmd", package = "H5weaver"),
           rmd_loc,
           overwrite = TRUE)
 
