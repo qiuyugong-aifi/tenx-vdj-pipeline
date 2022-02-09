@@ -16,7 +16,7 @@ The following metrics summarize the BCR sequencing and alignment by 10x well pri
 #### [Detailed Well Summary](#well_seq_summary)
 #### [Plots of Well-Level Metrics](#seq_metrics_plots)  
 #### [Clonotype Summay](#bcr_clone_summary)
-  - [Clonotype Size Distribution](#bcr_clone_size)  
+   - [Clonotype Size Distribution](#bcr_clone_size)  
   - [Unique Clonotype](#bcr_unique_clone_type)  
   - [CDR3 Nucleotide Distribution Summary](#bcr_cdr3_nt_distribution)
   - [Clonotype Abundance Summary](#bcr_clone_type_abudance)

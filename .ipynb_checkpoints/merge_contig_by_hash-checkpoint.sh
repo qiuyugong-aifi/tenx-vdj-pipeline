@@ -45,8 +45,6 @@ check_param() {
 
 pipeline_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-
-
 while getopts "i:k:o:" opt; do
   case $opt in
     i) input_dir="$OPTARG"
@@ -72,4 +70,4 @@ PoolID=$(cat ${input_key} | awk -F, 'NR==2{print $4}')
 
 cat ${input_dir}/multiplet*".csv" | awk -F',' -v OFS=',' '{ if(NR==1) { print $0 } else if($1!="barcodes") { print $0 } }' > "${output_dir}/${BatchID}-${PoolID}_multiplet_filtered_contig.csv"  
 
-echo $(stm "Done");
+echo $(stm "Done")

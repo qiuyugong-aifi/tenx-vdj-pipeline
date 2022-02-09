@@ -16,7 +16,7 @@ The following metrics summarize the TCR sequencing and alignment by 10x well pri
 #### [Detailed Well Summary](#well_seq_summary)
 #### [Plots of Well-Level Metrics](#seq_metrics_plots)  
 #### [Clonotype Summary](#clone_summary)
-  - [Clonotype Size Distribution](#tcr_clone_size)  
+   - [Clonotype Size Distribution](#tcr_clone_size)  
   - [Unique Clonotype](#unique_clone_type)  
   - [CDR3 Nucleotide Distribution Summary](#cdr3_nt_distribution)
   - [Clonotype Abundance Summary](#clone_type_abudance)

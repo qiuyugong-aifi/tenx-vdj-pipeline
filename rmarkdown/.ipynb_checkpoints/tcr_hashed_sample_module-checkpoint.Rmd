@@ -15,18 +15,14 @@ The following metrics summarize the sequencing and alignment by Sample ID after 
 ### Contents 
 
 #### [scTCR Hash-Based Summary](#hto_scTCR_summary)  
-  - [scTCR Well Counts per HTO Barcode Plot](#tcr_well_hto_barcode)   
-  
+   - [scTCR Well Counts per HTO Barcode Plot](#tcr_well_hto_barcode)   
   - [scTCR Well Fraction per HTO Barcode Plot](#tcr_well_fraction_hto_barcode)  
   
   
 #### [scTCR Sample Clonotype Summary](#sample_scTCR_summary)  
-  - [scTCR Clonotype Size](#tcr_sample_clone_size)
-  
+   - [scTCR Clonotype Size](#tcr_sample_clone_size)
   - [scTCR Sample Unique Clonotype](#unique_clone_type) 
-  
   - [scTCR Sample CDR3 Nucleotide Distribution Summary](#sample_cdr3_nt_distribution)
-  
   - [scTCR Sample Clonotyoe Abundance](#tcr_sample_clonotype_abundance)
   
   

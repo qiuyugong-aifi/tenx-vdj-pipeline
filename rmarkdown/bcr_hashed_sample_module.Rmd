@@ -12,11 +12,11 @@ The following metrics summarize the sequencing and alignment by Sample ID after 
 ### Contents 
 
 #### [scBCR Hash-Based Summary](#hto_scBCR_summary)  
-  - [scBCR Well Counts per HTO Barcode Plot](#bcr_well_hto_barcode)   
+   - [scBCR Well Counts per HTO Barcode Plot](#bcr_well_hto_barcode)   
   - [scBCR Well Fraction per HTO Barcode Plot](#bcr_well_fraction_hto_barcode)  
   
 #### [scBCR Sample Clonotype Summary](#sample_scBCR_summary)  
-  - [scBCR Clonotype Size](#bcr_sample_clone_size)   
+   - [scBCR Clonotype Size](#bcr_sample_clone_size)   
   - [scBCR Sample Unique Clonotype](#unique_clone_type) 
   - [scBCR Sample CDR3 Nucleotide Distribution Summary](#sample_cdr3_nt_distribution)
   - [scBCR Sample Clonotyoe Abundance](#bcr_sample_clonotype_abundance)
@@ -359,7 +359,7 @@ abundance$pool_id<-pool_id
 
 ggplot(abundance, aes(x = n,y = nn,color = sample_hto_pool)) +  
     geom_line()+ 
-    scale_x_log10(breaks = c(1,10,100,1000))+ 
+    scale_x_log10(breaks = c(1,2,3,4,5,10,20))+ 
     scale_y_log10(breaks = c(1,10,100,1000,10000))+
     ylab("Number of Clonotyoe")+
     xlab("Abundance")+
