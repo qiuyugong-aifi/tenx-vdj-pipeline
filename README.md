@@ -13,10 +13,10 @@ Scripts for initial processing of 10x Genomics 5 pimrme vdj data(scTCR/scBCR)
 - [Example](#formating_example)
 - [Outputs](#formating_outputs)
 
-#### [Splitting Contig files: split .sh](#formating)
-- [Parameters](#formating_param)
-- [Example](#formating_example)
-- [Outputs](#formating_outputs)
+#### [Splitting Contig files: split_contig_by_hash .sh](#split)
+- [Parameters](#split_param)
+- [Example](#split_example)
+- [Outputs](#split_outputs)
 
 
 
@@ -59,7 +59,7 @@ An example run for a cellranger count result is:
 bash mulit_output_fomrating.sh \
      -d EXP-00196-Multi-R1C1W1/outs/per_sample_outs/EXP-00196-Multi-P1C1W1/
      -b EXP-00196
-     -W P1C1W1
+     -w P1C1W1
 ```
 <a id="formating_outputs"></a>
 
@@ -79,7 +79,52 @@ It will also add reformated contig csv files in both EXP-00196-Multi-P1C1W1/outs
 - EXP-00196-Multi-P1C1W1/outs/per_sample_outs/EXP-00196-Multi-P1C1W1/vdj_t/EXP-00196-P1C1W1_Filtered_Contig_Reformated.csv
 
 
+<a id="split"></a>
 
+## split filtered contig by hash 
+
+This script will split the Filtered_Contig_Reformated.csv files based on cell hashing result. HTO files comes from cell hashing pipeline output.
+
+[Return to Contents](#contents)
+
+<a id="split_param"></a>
+
+There are 4 parameters for this script:  
+- `-c `: Input HTO Category
+- `-i `: Input Reformated Contig File 
+- `-o `: Output Directory
+- `-w `: Well ID
+
+
+<a id="split_example"></a>
+
+
+An example run for a cellranger count result is:
+```
+bash split_contig_by_hash.shh \
+     -c EXP-00196-P1C1W1_hto_category_table.csv.gz
+     -i EXP-00196-MuLti-R1C1W1/outs/per_sample_outs/EXP-00196-MuLti-P1C1W1/vdj_b/EXP-00196-P1C1W1_Filtered_Contig_Reformated.csv
+     -w P1C1W1
+     -o split_contig_scbcr
+```
+
+
+<a id="split_outputs"></a>
+
+The output should be the splitted contig files by hash for each well. The file name start with sample name followed by well name.
+
+Output examples: 
+
+- IMM19_692_P1C1W1_filtered_contig.csv
+- PB01446-02_P1C1W1_filtered_contig.csv
+- PB01450-02_P1C1W1_filtered_contig.csv
+- PB01454-02_P1C1W1_filtered_contig.csv
+- PB01455-02_P1C1W1_filtered_contig.csv
+- PB01458-02_P1C1W1_filtered_contig.csv
+- PB01459-02_P1C1W1_filtered_contig.csv
+- PB02243-02_P1C1W1_filtered_contig.csv
+- PB02270-02_P1C1W1_filtered_contig.csv
+- multiplet_P1C1W1_filtered_contig.csv
 
 
 [Return to Contents](#contents)
