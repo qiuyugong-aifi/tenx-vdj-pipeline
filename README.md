@@ -1,6 +1,6 @@
 # tenx-vdj-pipeline
 
-Scripts for initial processing of 10x Genomics 5 pimrme vdj data(scTCR/scBCR)
+Scripts for initial processing of 10x Genomics 5 prime vdj data (scTCR/scBCR)
 
 <a id="contents"></a>
 
