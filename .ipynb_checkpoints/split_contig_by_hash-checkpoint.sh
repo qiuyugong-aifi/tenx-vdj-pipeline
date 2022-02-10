@@ -66,7 +66,7 @@ done
 
 echo $(stm "START TCR/BCR spliting by hash")
 echo $(check_param "-c" "Input HTO Category" ${in_category})
-echo $(check_param "-i" "Input Contig File" ${in_contig})
+echo $(check_param "-i" "Input Contig file" ${in_contig})
 echo $(check_param "-o" "Output Directory" ${output_dir})
 echo $(check_param "-w" "Well ID" ${well_id})
 total_start_time="$(date -u +%s)"
