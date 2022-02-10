@@ -8,16 +8,25 @@ Scripts for initial processing of 10x Genomics 5 pimrme vdj data(scTCR/scBCR)
 
 #### [Dependencies](#dependencies)
 
-#### [Cellranger Mulit output formating: multi_output_formatting.sh](#formating)
+#### [Cellranger Mulit Output Formating: multi_output_formatting.sh](#formating)
 - [Parameters](#formating_param)
 - [Example](#formating_example)
 - [Outputs](#formating_outputs)
 
-#### [Splitting Contig files: split_contig_by_hash .sh](#split)
+#### [Split Contig Files: split_contig_by_hash.sh](#split)
 - [Parameters](#split_param)
 - [Example](#split_example)
 - [Outputs](#split_outputs)
 
+#### [Merge Contig Files: merge_contig_by_hash.sh](#merge)
+- [Parameters](#merge_param)
+- [Example](#merge_example)
+- [Outputs](#merge_outputs)
+
+#### [Add Contig to H5 Metadata: add_contig_to_h5_metadata.R](#add_contig)
+- [Parameters](#add_contig_param)
+- [Example](#add_contig_example)
+- [Outputs](#add_contig_outputs)
 
 
 <a id="dependencies"></a>
@@ -37,7 +46,7 @@ devtools::install_github("aifimmunology/H5weaver")
 
 <a id="formating"></a>
 
-## Output Formating for cellranger Mulit output
+## Output Formating for Cellranger Mulit 0utput
 
 This script will split metric_summary.scv into three summary files that corresponding to gene expression, scTCR, scBCR library. The gene expression summary file can be used directly into tenx-rnaseq-pipeline/run_add_tenx_rna_metadata.R. It will also add two columns (Well_ID, Batch_ID) to the filtered_contig_annotation files. 
 
@@ -54,11 +63,11 @@ There are 3 parameters for this script:
 <a id="formating_example"></a>
 
 
-An example run for a cellranger count result is:
+An example run for a cellranger multi result is:
 ```
 bash mulit_output_fomrating.sh \
-     -d EXP-00196-Multi-R1C1W1/outs/per_sample_outs/EXP-00196-Multi-P1C1W1/
-     -b EXP-00196
+     -d EXP-00196-Multi-R1C1W1/outs/per_sample_outs/EXP-00196-Multi-P1C1W1/ \
+     -b EXP-00196 \
      -w P1C1W1
 ```
 <a id="formating_outputs"></a>
@@ -81,9 +90,9 @@ It will also add reformated contig csv files in both EXP-00196-Multi-P1C1W1/outs
 
 <a id="split"></a>
 
-## split filtered contig by hash 
+## Split Filtered Contig by Hash 
 
-This script will split the Filtered_Contig_Reformated.csv files based on cell hashing result. HTO files comes from cell hashing pipeline output.
+This script will split the Filtered_Contig_Reformated.csv files based on cell hashing result. HTO files comes from cell hashing pipeline output. Notes: You need to do splitting separately for scTCR and scBCR.
 
 [Return to Contents](#contents)
 
@@ -99,12 +108,12 @@ There are 4 parameters for this script:
 <a id="split_example"></a>
 
 
-An example run for a cellranger count result is:
+An example run for a split contig step
 ```
-bash split_contig_by_hash.shh \
-     -c EXP-00196-P1C1W1_hto_category_table.csv.gz
-     -i EXP-00196-MuLti-R1C1W1/outs/per_sample_outs/EXP-00196-MuLti-P1C1W1/vdj_b/EXP-00196-P1C1W1_Filtered_Contig_Reformated.csv
-     -w P1C1W1
+bash split_contig_by_hash.sh \
+     -c EXP-00196-P1C1W1_hto_category_table.csv.gz \
+     -i EXP-00196-MuLti-R1C1W1/outs/per_sample_outs/EXP-00196-MuLti-P1C1W1/vdj_b/EXP-00196-P1C1W1_Filtered_Contig_Reformated.csv \
+     -w P1C1W1 \
      -o split_contig_scbcr
 ```
 
@@ -125,6 +134,92 @@ Output examples:
 - PB02243-02_P1C1W1_filtered_contig.csv
 - PB02270-02_P1C1W1_filtered_contig.csv
 - multiplet_P1C1W1_filtered_contig.csv
+
+## Merge Contig by Hash 
+
+This script will merge contig in the folder of splited contig result. It will detect files with same sample name, and combined them together. Notes: You need to do merging separately for scTCR and scBCR.
+
+[Return to Contents](#contents)
+
+<a id="merge_param"></a>
+
+
+There are 3 parameters for this script:  
+- `-i `: Input Directory from Splitting Step
+- `-k `: Input Cell Hashing Sheet 
+- `-o `: Output Directory
+
+<a id="merge_example"></a>
+
+
+An example run for merge contig step
+```
+bash merge_contig_by_hash.sh \
+     -i split_contig_scbcr \
+     -k exp-0196-cellhashing_sheet.csv \
+     -o merged_contig_scbcr
+```
+
+<a id="merge_outputs"></a>
+
+
+Output examples: 
+- EXP-00196-P1_IMM19_692_filtered_contig.csv
+- EXP-00196-P1_PB01446-02_filtered_contig.csv
+- EXP-00196-P1_PB01450-02_filtered_contig.csv
+- EXP-00196-P1_PB01454-02_filtered_contig.csv
+- EXP-00196-P1_PB01455-02_filtered_contig.csv
+- EXP-00196-P1_PB01458-02_filtered_contig.csv
+- EXP-00196-P1_PB01459-02_filtered_contig.csv
+- EXP-00196-P1_PB02243-02_filtered_contig.csv
+- EXP-00196-P1_PB02270-02_filtered_contig.csv
+- EXP-00196-P1_multiplet_filtered_contig.csv
+
+
+## Add Contig to H5 Metadata 
+
+This script will add contig data into the h5 meta data. scBCR and scTCR need to be added subsequently. 
+
+[Return to Contents](#contents)
+
+<a id="add_contig_param"></a>
+
+
+There are 6 parameters for this script:  
+- `-i `: Input sample h5 files 
+- `-c `: Input sample filtered contig files 
+- `-d `: Output Directory
+- `-b `: Batch ID
+- `-t `: In category: "scTCR" or "scBCR"
+- `-o `: Output HTML run summary file
+
+
+
+<a id="add_contig_example"></a>
+
+
+An example run for add contig to meta data 
+```
+Rscript --vanilla tenx-vdj-pipeline/add_contig_to_h5_metadata.R \
+     -i /home/jupyter/cell_hash/merged_h5/PB01446-02.h5 \
+     -c /home/jupyter/merged_contig_bcr/EXP-00196-P1_PB01446-02_filtered_contig.csv \
+     -d /home/jupyter/Add_contig_outputs/ \
+     -b EXP-00196 \
+     -t scBCR \
+     -o EXP-00196-P1_PB01446-02_scBCR_run_summary.html
+```
+
+<a id="add_contig_outputs"></a>
+
+
+Output examples: 
+- PB01446-02.h5
+- EXP-00196-P1_PB01446-02_scBCR_run_summary.html
+- PB01450-02_filtered_contig_scBCR.csv
+
+
+
+
 
 
 [Return to Contents](#contents)
