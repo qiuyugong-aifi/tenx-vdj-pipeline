@@ -207,7 +207,7 @@ Output examples:
 
 ## Add Contig to H5 Metadata 
 
-This script will add contig data into the h5 meta data. scBCR and scTCR need to be added subsequently. 
+This script will add contig data into the h5 meta data. scBCR and scTCR need to be added subsequently. Meanwhile, this script will also replace the origional barcodes in filtered contig with cell uuid we added in h5 data.
 
 [Return to Contents](#contents)
 
