@@ -63,10 +63,9 @@ Argument Parsing
 ```{r parse_arguments}
 # give input directory rna-specific name 
 if(is.null(params$in_h5)) {
-  in_dir <- system.file("extdata/X070", package = "tenx_vdj_pipeline")
-  in_key <- system.file("extdata/example_sample_key_X070.csv", package = "tenx_vdj_pipeline")
-  in_config <- system.file("extdata/default_rna_config_v1.csv", package = "tenx_vdj_pipeline")
-  out_dir <- tempdir()
+stm(paste0("Please provide input h5"))
+
+
 } else {
   in_h5 <- params$in_h5  
   in_contig <- params$in_contig
