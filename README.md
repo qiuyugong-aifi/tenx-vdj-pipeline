@@ -141,7 +141,7 @@ An example run for a split contig step
 ```
 bash tenx-vdj-pipeline/split_contig_by_hash.sh \
      -c EXP-00196-P1C1W1_hto_category_table.csv.gz \
-     -i EXP-00196-MuLti-R1C1W1/outs/per_sample_outs/EXP-00196-MuLti-P1C1W1/vdj_b/EXP-00196-P1C1W1_Filtered_Contig_Reformated.csv \
+     -i EXP-00196-Multi-R1C1W1/outs/per_sample_outs/EXP-00196-MuLti-P1C1W1/vdj_b/EXP-00196-P1C1W1_Filtered_Contig_Reformated.csv \
      -w P1C1W1 \
      -o split_contig_scbcr
 ```
