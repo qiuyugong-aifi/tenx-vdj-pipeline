@@ -36,7 +36,7 @@ Scripts for initial processing of 10x Genomics 5 prime vdj data (scTCR/scBCR)
 
 ## Dependencies
 
-This repository requires that `csvtool`
+This repository requires that `csvtool` to be installed: 
 ```
 sudo apt-get install csvtool
 ```
