@@ -94,7 +94,7 @@ There are 3 parameters for this script:
 
 An example run for a cellranger multi result is:
 ```
-bash mulit_output_fomrating.sh \
+bash tenx-vdj-pipeline/mulit_output_fomrating.sh \
      -d EXP-00196-Multi-R1C1W1/outs/per_sample_outs/EXP-00196-Multi-P1C1W1/ \
      -b EXP-00196 \
      -w P1C1W1
@@ -139,7 +139,7 @@ There are 4 parameters for this script:
 
 An example run for a split contig step
 ```
-bash split_contig_by_hash.sh \
+bash tenx-vdj-pipeline/split_contig_by_hash.sh \
      -c EXP-00196-P1C1W1_hto_category_table.csv.gz \
      -i EXP-00196-MuLti-R1C1W1/outs/per_sample_outs/EXP-00196-MuLti-P1C1W1/vdj_b/EXP-00196-P1C1W1_Filtered_Contig_Reformated.csv \
      -w P1C1W1 \
@@ -183,7 +183,7 @@ There are 3 parameters for this script:
 
 An example run for merge contig step
 ```
-bash merge_contig_by_hash.sh \
+bash tenx-vdj-pipeline/merge_contig_by_hash.sh \
      -i split_contig_scbcr \
      -k exp-0196-cellhashing_sheet.csv \
      -o merged_contig_scbcr
