@@ -47,10 +47,11 @@ This repository requires that `csvtool` to be installed:
 sudo apt-get install csvtool
 ```
 
-It also depends on the `H5weaver`, `circlize`, `rmarkdown`, and `optparse` libraries.
+It also depends on the `H5weaver`, `circlize`, `stringi`, `rmarkdown`, and `optparse` libraries.
 
-`circlize`, `rmarkdown` and `optparse` are available from CRAN, and can be installed in R using:
+`circlize`, `stringi` ,`rmarkdown` and `optparse` are available from CRAN, and can be installed in R using:
 ```
+install.packages("stringi")
 install.packages("circlize")
 install.packages("rmarkdown")
 install.packages("optparse")
