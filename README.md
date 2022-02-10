@@ -47,6 +47,15 @@ This repository requires that `csvtool` to be installed:
 sudo apt-get install csvtool
 ```
 
+It also depends on the `H5weaver`, `circlize`, `rmarkdown`, and `optparse` libraries.
+
+`circlize`, `rmarkdown` and `optparse` are available from CRAN, and can be installed in R using:
+```
+install.packages("circlize")
+install.packages("rmarkdown")
+install.packages("optparse")
+```
+
 `H5weaver` is found in the aifimmunology Github repositories. Install with:
 ```
 Sys.setenv(GITHUB_PAT = "[your_personal_token_here]")
