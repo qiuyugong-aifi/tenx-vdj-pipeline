@@ -8,6 +8,9 @@ Scripts for initial processing of 10x Genomics 5 pimrme vdj data(scTCR/scBCR)
 
 #### [Dependencies](#dependencies)
 
+#### [CellHashing SampleSheet](#SampleSheet)
+
+
 #### [Cellranger Mulit Output Formating: multi_output_formatting.sh](#formating)
 - [Parameters](#formating_param)
 - [Example](#formating_example)
@@ -42,6 +45,26 @@ sudo apt-get install csvtool
 ```
 Sys.setenv(GITHUB_PAT = "[your_personal_token_here]")
 devtools::install_github("aifimmunology/H5weaver")
+```
+
+<a id="SampleSheet"></a>
+
+## CellHashing SampleSheet
+
+Cell hashing sample sheet used in merging step contain 4 columns: SampleID, BatchID, HashTag, PoolID
+
+Example:
+```
+SampleID,BatchID,HashTag,PoolID
+PB02270-02,EXP-00196,HT1,P1
+PB02243-02,EXP-00196,HT2,P1
+PB01459-02,EXP-00196,HT3,P1
+PB01458-02,EXP-00196,HT4,P1
+PB01455-02,EXP-00196,HT5,P1
+PB01454-02,EXP-00196,HT6,P1
+PB01450-02,EXP-00196,HT7,P1
+PB01446-02,EXP-00196,HT8,P1
+IMM19_692,EXP-00196,HT9,P1
 ```
 
 <a id="formating"></a>
