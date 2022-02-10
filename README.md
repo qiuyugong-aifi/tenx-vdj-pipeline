@@ -36,7 +36,7 @@ Scripts for initial processing of 10x Genomics 5 prime vdj data (scTCR/scBCR)
 ## Pipeline Work Flow 
 
 
-
+![Workflow](tenx-vdj-pipeline-workflow.png)
 
 <a id="dependencies"></a>
 
